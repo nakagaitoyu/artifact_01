@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('songs', function (Blueprint $table) {
-            //
+        Schema::create('characters', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+            $table->bigInteger('anime_id')->unsigned();
         });
     }
 
@@ -25,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('songs', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('characters');
     }
 };

@@ -7,16 +7,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Review;
+use App\Models\Review_Comment;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }   
+    
+    public function review_comments()
+    {
+        return $this->hasMany(Review_Comment::class);
+    }
+    
     protected $fillable = [
         'name',
         'email',

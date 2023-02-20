@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('reviews_comments', function (Blueprint $table) {
-            //
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('body');
+            $table->timestamps();
+            $table->bigInteger('user_id')->unsigned(); 
+            $table->bigInteger('anime_id')->unsigned();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('reviews_comments', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('reviews');
     }
 };
