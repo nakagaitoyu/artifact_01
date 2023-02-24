@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('overview');
             $table->timestamps();
-            $table->bigInteger('anime_id')->unsigned();
+            $table->foreignId('anime_id');
         });
     }
 

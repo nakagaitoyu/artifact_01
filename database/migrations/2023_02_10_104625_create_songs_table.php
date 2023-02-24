@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('artist');
             $table->timestamps();
-            $table->bigInteger('anime_id')->unsigned(); 
+            $table->foreignId('anime_id'); 
         });
     }
 

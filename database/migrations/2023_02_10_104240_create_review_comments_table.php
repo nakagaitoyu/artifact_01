@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('body');
             $table->timestamps();
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('review_id')->unsigned(); 
+            $table->foreignId('user_id');
+            $table->foreignId('review_id'); 
         });
     }
 

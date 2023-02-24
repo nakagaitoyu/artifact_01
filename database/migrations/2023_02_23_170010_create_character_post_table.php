@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('body');
-            $table->foreignId('user_id');
-            $table->foreignId('anime_id');
-            $table->timestamps();
+        Schema::create('character_post', function (Blueprint $table) {
+            $table->foreignId('post_id')->constrained('posts');
+            $table->foreignId('character_id')->constrained('characters');
+            $table->primary(['post_id', 'character_id']); 
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('character_post');
     }
 };
