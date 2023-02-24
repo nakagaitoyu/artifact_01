@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Anime;
 use App\Models\Review_Comment;
+use App\Models\Post;
 
 class review extends Model
 {
@@ -23,5 +24,9 @@ class review extends Model
     public function review_comments()
     {
         return $this->hasMany(Review_Comment::class);
+    }
+    public function post()
+    {
+        return $this->hasOne(Post::class);
     }
 }

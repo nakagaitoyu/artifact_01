@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Review;
 use App\Models\Review_Comment;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,10 @@ class User extends Authenticatable
     public function review_comments()
     {
         return $this->hasMany(Review_Comment::class);
+    }
+    public function post()
+    {
+        return $this->hasOne(Post::class);
     }
     
     protected $fillable = [

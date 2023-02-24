@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Review;
 use App\Models\Character;
 use App\Models\Song;
+use App\Models\Post;
 
 class anime extends Model
 {
@@ -23,5 +24,9 @@ class anime extends Model
     public function songs()
     {
         return $this->hasMany(Song::class);
+    }
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }
