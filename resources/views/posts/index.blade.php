@@ -21,9 +21,14 @@
                                 <h4 class='review_comments'>【他のユーザーのコメント】</h4>
                                 <textarea placeholder="コメントを入力してください">{{ old('post.body')}}</textarea>
                                 <p><button type="button">保存する</button></p>
-                                <p><button type="button" >コメント一覧を表示</button></p>
+                                <p　class='link'>
+                                    <a href="/posts/{{ $post->id }}">コメント一覧を表示</a>
+                                </p>
                 </div>
             @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $posts->links()}}
         </div>
     </body>
 </html>

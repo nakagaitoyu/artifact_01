@@ -35,4 +35,8 @@ class Post extends Model
     {
         return $this->belongsTo(Review::class);
     }
+    public function getPaginateByLimit(int $limit_count = 1)
+    {
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }   
 }

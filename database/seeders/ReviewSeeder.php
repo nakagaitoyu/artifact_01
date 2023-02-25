@@ -19,9 +19,17 @@ class ReviewSeeder extends Seeder
     {
         DB::table('reviews')->insert([
                 'title' => "おすすめアニメ",
-                'body' => "面白い",
+                'body' => "かっこいい",
                 'user_id' => 1,
                 'anime_id' => 1,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        DB::table('reviews')->insert([
+                'title' => "おすすめアニメ",
+                'body' => "面白い",
+                'user_id' => 2,
+                'anime_id' => 2,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
         ]);

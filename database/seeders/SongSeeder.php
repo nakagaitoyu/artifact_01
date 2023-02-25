@@ -23,5 +23,12 @@ class SongSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
         ]);
+        DB::table('songs')->insert([
+                'name' => "謎",
+                'artist' => "小松未歩",
+                'anime_id' => 2,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
     }
 }
