@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             AnimeSeeder::class,
-            ReviewSeeder::class,
             SongSeeder::class,
             CharacterSeeder::class,
             Review_CommentSeeder::class,

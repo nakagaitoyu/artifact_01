@@ -18,8 +18,8 @@ class Review_CommentSeeder extends Seeder
     {
        DB::table('review_comments')->insert([
                 'user_id' => 2,
-                'review_id' => 1,
-                'body' => "ユーザー２のコメント内容",
+                'post_id' => 1,
+                'body' => "わたしもそう思います",
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
         ]);
