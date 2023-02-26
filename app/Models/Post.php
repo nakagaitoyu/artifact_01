@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Anime;
 use App\Models\Character;
 use App\Models\Song;
+use App\Models\Review_Comment;
 
 
 
@@ -31,8 +32,12 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function review()
+    public function review_comments()
     {
-        return $this->belongsTo(Review::class);
+        return $this->hasMany(Review_Comment::class);
     }
+    public function getPaginateByLimit(int $limit_count = 1)
+    {
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }   
 }

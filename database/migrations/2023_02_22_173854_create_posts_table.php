@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('anime_id');
             $table->foreignId('character_id');
             $table->foreignId('song_id');
-            $table->foreignId('review_id');
+            $table->string('review');
             $table->timestamps();
         });
     }

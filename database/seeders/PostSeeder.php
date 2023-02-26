@@ -21,7 +21,16 @@ class PostSeeder extends Seeder
                 'anime_id' => 1,
                 'character_id' => 1,
                 'song_id' => 1,
-                'review_id' => 1,
+                'review' => "かっこいい",
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        DB::table('posts')->insert([
+                'user_id' => 2,
+                'anime_id' => 2,
+                'character_id' => 2,
+                'song_id' => 2,
+                'review' => "おもしろい",
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
         ]);

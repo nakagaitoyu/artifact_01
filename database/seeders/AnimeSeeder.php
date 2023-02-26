@@ -24,5 +24,12 @@ class AnimeSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
             ]);
+         DB::table('animes')->insert([
+                'name' => "名探偵コナン",
+                'overview' => "推理する話",
+                'count_serch' => 10,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+            ]);
     }
 }

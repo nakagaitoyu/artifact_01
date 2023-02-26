@@ -23,5 +23,12 @@ class CharacterSeeder extends Seeder
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
         ]);
+        DB::table('characters')->insert([
+                'name' => "江戸川コナン",
+                'overview' => "小学生",
+                'anime_id' => 2,
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
     }
 }
