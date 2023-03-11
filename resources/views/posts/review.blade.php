@@ -16,14 +16,9 @@
                     <p class='body'>・好きなアーティスト:{{ $post->song->artist }}  </p>
                     <h4 class='review'> 【本人のコメント】</h4>
                     <text> {{ $post->review }} </text>
-                        <h4 class='review_comments'>【あなたのコメント】</h4>
-                        <textarea placeholder="コメントを入力してください">{{ old('post.body')}}</textarea>
-                            <p>
-                                <button type="button">保存する</button>
-                            </p>
-                                <h4 class='review_comments'>【ユーザーのコメント】</h4>
+                               <h4 class='review_comments'>【ユーザーのコメント】</h4>
                                 @foreach ($post->review_comments as $review_comment)
-                                    <h5 class='review_user'>{{ $review_comment->user->name }}</h5>
+                                　　<p class='user_id'>{{ $post->user->name }}</p>
                                     <p class='review_comment'>{{ $review_comment->body }}</p>
                                 @endforeach
             </div>
