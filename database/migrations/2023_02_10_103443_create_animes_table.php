@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('animes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('overview');
-            $table->integer("count_serch")->length(6);
+            $table->string('overview')->nullable();
+            $table->integer("count_serch")->length(6)->default(0);
             $table->timestamps();
         });
     }

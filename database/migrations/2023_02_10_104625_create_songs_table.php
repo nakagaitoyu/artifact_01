@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('artist');
             $table->timestamps();
-            $table->foreignId('anime_id'); 
+            $table->foreignId('anime_id')->constrained(); 
         });
     }
 
