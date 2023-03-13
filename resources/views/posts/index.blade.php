@@ -17,19 +17,8 @@
                         <p class='body'>・好きな曲:{{ $post->song->name }}</p>
                         <p class='body'>・好きなアーティスト:{{ $post->song->artist }}  </p>
                             <h4 class='review'> 【本人のコメント】</h4>
-                                <text> {{ $post->review }} </text>
-                                <form action="/posts/{{$post->id}}" method="POST">
-                            @csrf
-                            <h4 class='review_comment'>【あなたのコメント】</h4>
-                                <p>
-                                    <textarea name="review_comment[body]" placeholder="コメントを入力してください">{{ old('review_comment.body')}}</textarea>
-                                </p>
-                                <p>
-                                    <input type="submit" value="保存" />
-                                     <a href="/posts/{{ $post->id }}"></a>
-                                </p>
-                                </form>
-                                <p　class='link'>
+                                <p><text> {{ $post->review }} </text></p>
+                                <p class='link'>
                                     <a href="/posts/{{ $post->id }}">コメント一覧を表示</a>
                                 </p>
                 </div>
