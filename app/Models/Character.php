@@ -11,6 +11,8 @@ class character extends Model
 {
     use HasFactory;
     
+     protected $fillable = ['name','anime_id'];
+    
     public function anime()
     {
         return $this->belongsTo(Anime::class);

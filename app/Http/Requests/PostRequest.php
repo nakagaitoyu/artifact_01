@@ -24,6 +24,10 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
+            'anime.name' => 'required|string|max:100',
+            'character.name'=>'required|string|max:100',
+            'song.name' => 'required|string|max:100',
+            'song.artist' =>'required|string|max:100',
             'review_comment.body' => 'required|string|max:4000',
         ];
     }

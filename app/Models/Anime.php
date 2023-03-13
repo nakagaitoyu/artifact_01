@@ -12,6 +12,8 @@ class anime extends Model
 {
     use HasFactory;
     
+     protected $fillable = ['name', 'user_id'];
+    
     
     public function characters()
     {

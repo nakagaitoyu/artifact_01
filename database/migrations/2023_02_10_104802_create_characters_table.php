@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('overview');
+            $table->string('overview')->nullable();
             $table->timestamps();
-            $table->foreignId('anime_id');
+            $table->foreignId('anime_id')->constrained();
         });
     }
 

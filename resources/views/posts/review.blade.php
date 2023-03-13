@@ -30,7 +30,7 @@
                             </form>
                     <h4 class='review_comments'>【ユーザーのコメント】</h4>
                         @foreach ($post->review_comments as $review_comment)
-                        　　<p class='user_name'>user:{{ $review_comment->user->name }}</p>
+                        　　<p class='user_name'>{{ $review_comment->user->name }}</p>
                             <p class='review_comment'>{{ $review_comment->body }}</p>
                                 @if(Auth::id() === $review_comment->user_id)
                                     <form action="/posts/{{ $review_comment->id }}" id="form_{{ $post->id }}" method="post">

@@ -8,6 +8,9 @@
     </head>
     <body>
         <h1 class='title'>仮タイトル</h1>
+        <p class='link'>
+            <a href ="/posts/create">マイページ</a>
+        </p>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
@@ -18,6 +21,13 @@
                         <p class='body'>・好きなアーティスト:{{ $post->song->artist }}  </p>
                             <h4 class='review'> 【本人のコメント】</h4>
                                 <p><text> {{ $post->review }} </text></p>
+                                    @if(Auth::id() === $post->user_id)
+                                        <form action="/{{$post->id}}" id="form_{{ $post->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" onclick="deletePost({{ $post->id }})">削除</button> 
+                                        </form>
+                                    @endif
                                 <p class='link'>
                                     <a href="/posts/{{ $post->id }}">コメント一覧を表示</a>
                                 </p>
@@ -28,4 +38,13 @@
             {{ $posts->links()}}
         </div>
     </body>
+    <script>
+        function deletePost(id) {
+            'use strict'
+    
+            if (confirm('削除すると復元できません。\本当に削除しますか？')) {
+                document.getElementById(`form_${id}`).submit();
+            }
+        }
+    </script>
 </html>

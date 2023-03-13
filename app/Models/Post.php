@@ -8,12 +8,16 @@ use App\Models\Anime;
 use App\Models\Character;
 use App\Models\Song;
 use App\Models\Review_Comment;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+    
+     protected $fillable = ['review','anime_id','song_id','character_id'];
     
     public function anime()
     {
