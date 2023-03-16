@@ -47,7 +47,7 @@
         </div>
         
         <div>
-            <x-input-label for="image_url" :value="__('image_url')"/>
+            <x-input-label for="image_url" :value="__('アイコン画像')"/>
             <x-text-input id="image_url" class="block mt-1 w-full" type="file" name="image_url" :value="old('image_url')" />
             <x-input-error :messages="$errors->get('image_url')" class="mt-2" />
         </div>
