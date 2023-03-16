@@ -10,6 +10,7 @@ use App\Models\Song;
 use App\Models\Review_Comment;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\CommentRequest;
 
 class PostController extends Controller
 {
@@ -18,28 +19,32 @@ class PostController extends Controller
         return view('posts/index')->with(['posts'=> $post->getPaginateByLimit()]);
     }
     
-    public function post(PostRequest $request, Post $post , Anime $anime , Character $character , Song $song)
+    public function post(CommentRequest $request, Post $post , Anime $anime , Character $character , Song $song)
     {
+        
         $post->user_id = auth::id();
         
-        
-        $input = $request['anime'];
-        $anime->fill($input)->save();
+        if( $request['anime']['name'] != "other"){
+            $anime_id = (int)$request['anime'];
+        }else{
+            $input = $request['new_anime'];
+            $anime->fill($input)->save();
+            $anime_id = $anime->id;
+        }
         
         $input = $request['character'];
-        $input += array("anime_id"=>$anime->id);
+        $input += array("anime_id"=>$anime_id);
         $character->fill($input)->save();
         
         $input = $request['song'];
-        $input += array("anime_id"=>$anime->id);
+        $input += array("anime_id"=>$anime_id);
         $song->fill($input)->save();
         
         $input = $request['post'];
-        $input += array("anime_id"=>$anime->id);
+        $input += array("anime_id"=>$anime_id);
         $input += array("character_id"=>$character->id);
         $input += array("song_id"=>$song->id);
         $post->fill($input)->save();
-        
         
         
         
@@ -76,8 +81,8 @@ class PostController extends Controller
         return redirect('/posts/' . $post_id);
     }
     
-    public function create()
+    public function create(Anime $anime)
     {
-        return view('posts/create');
+        return view('posts/create')->with(['animes'=>$anime->get()]);
     }
 }

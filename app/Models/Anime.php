@@ -8,7 +8,7 @@ use App\Models\Character;
 use App\Models\Song;
 use App\Models\Post;
 
-class anime extends Model
+class Anime extends Model
 {
     use HasFactory;
     
@@ -23,8 +23,12 @@ class anime extends Model
     {
         return $this->hasMany(Song::class);
     }
-    public function post()
+    public function posts()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
+    }
+    public function getByAnime(int $limit_count = 1)
+    {
+        return $this->posts()->with('anime')->orderBy('updated_at','DESC')->paginate($limit_count);
     }
 }

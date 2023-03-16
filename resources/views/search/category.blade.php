@@ -1,21 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Main Page</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <title>検索結果</title>
+         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <p class='link'>
-            <a href="/search">検索ページ</a>
-        </p>
-        <p class='link'>
-            <a href ="/posts/create">マイページ</a>
-        </p>
-        <h1 class='title'>ANNECTION</h1>
-        
         <div class='posts'>
+            <h1>あなたの検索結果</h1>
             @foreach ($posts as $post)
                 <div class='post'>
                     <h3 class='body'>{{ $post->user->name }}</h3>
@@ -42,13 +34,4 @@
             {{ $posts->links()}}
         </div>
     </body>
-    <script>
-        function deletePost(id) {
-            'use strict'
-    
-            if (confirm('削除すると復元できません。\本当に削除しますか？')) {
-                document.getElementById(`form_${id}`).submit();
-            }
-        }
-    </script>
 </html>

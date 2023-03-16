@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1 class='title'>仮タイトル</h1>
+        <h1 class='title'>ANNECTION</h1>
         <div class='post'>
             <h3 class='body'>{{ $post->user->name }}</h3>
             <h3 class='body'>アニメ:{{ $post->anime->name }}</h3>
@@ -31,6 +31,7 @@
                     <h4 class='review_comments'>【ユーザーのコメント】</h4>
                         @foreach ($post->review_comments as $review_comment)
                         　　<p class='user_name'>{{ $review_comment->user->name }}</p>
+                        　　<p class='date'>{{ $review_comment->created_at }}</p>
                             <p class='review_comment'>{{ $review_comment->body }}</p>
                                 @if(Auth::id() === $review_comment->user_id)
                                     <form action="/posts/{{ $review_comment->id }}" id="form_{{ $post->id }}" method="post">

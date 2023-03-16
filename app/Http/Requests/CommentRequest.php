@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class CommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,11 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'review_comment.body' => 'required|string|max:4000',
+            'anime.name'=> 'required|string|max:100',
+            'character.name'=> 'required|string|max:100',
+            'song.name'=> 'required|string|max:100',
+            'song.artist'=>'required|string|max:100',
+            'post.review'=>'required|string|max:1000',
         ];
     }
 }
