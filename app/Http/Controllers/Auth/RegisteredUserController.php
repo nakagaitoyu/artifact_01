@@ -38,11 +38,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
         
-        $image_url = Cloudinary::upload($request->file('image_url')->getRealPath())->getSecurePath();
-        
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         $user = User::create([
             'name' => $request->name,
-            'image_url' => $image_url,
             'age' => $request->age,
             'email' => $request->email,
             'password' => Hash::make($request->password),

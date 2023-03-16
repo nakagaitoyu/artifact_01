@@ -13,9 +13,19 @@
             <form action="/posts/create" method="POST">
             @csrf
                 <p class='anime'>
-                    <textarea name="anime[name]" placeholder="アニメ名を入力してください">{{ old('anime.name')}}</textarea>
+                    <p>該当のアニメがない場合はその他を選択し、」以下に正式名称を入力してください。</p>
+                    <select name="anime[name]" id="anime_select" >
+                        <option value="" >アニメを選択してください</option>  
+                        @foreach($animes as $anime)
+                            <option value="{{ $anime->id }}">{{ $anime->name }}</option>
+                        @endforeach
+                        <option value="other">その他</option>
+                    </select>
                     <p class="body__error" style="color:red">{{ $errors->first('anime.name') }}</p>
                 </p>
+                
+                <p>新規アニメ</p>
+                <input type="text" name="new_anime[name]" id="new_input" disabled>
                 <p class='character'>
                     <textarea name="character[name]" placeholder="キャラクター名を入力してください">{{ old('character.name')}}</textarea>
                     <p class="body__error" style="color:red">{{ $errors->first('character.name') }}</p>
@@ -35,5 +45,18 @@
                 <input type="submit" value="保存" />
                 </p>
             </form>
+    <script>
+        let new_input = document.getElementById('new_input');
+        function selectChange(event){
+            let value=event.currentTarget.value;
+            if(value=="other"){
+                new_input.disabled=false;
+            }else{
+                new_input.disabled=true;
+            }
+        }
+        let select = document.getElementById("anime_select");
+        select.addEventListener('change',selectChange);
+    </script>
     </body>
 </html>

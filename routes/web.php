@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,16 @@ use App\Http\Controllers\PostController;
 |
 */
 
-
+Route::post('/search/result',[SearchController::class, 'search']);
 Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/{post}',[PostController::class, 'review']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/search',[SearchController::class, 'index']);
+Route::get('anime/{anime}' ,[SearchController::class, 'category']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts/create', [PostController::class, 'create']);
