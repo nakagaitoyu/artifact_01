@@ -40,7 +40,7 @@ class Post extends Model
     {
         return $this->hasMany(Review_Comment::class);
     }
-    public function getPaginateByLimit(int $limit_count = 1)
+    public function getPaginateByLimit(int $limit_count = 10)
     {
         return $this::with('anime')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }   
