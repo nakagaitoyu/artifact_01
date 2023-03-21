@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+<x-app-layout>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <title>My Page</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        
     </head>
     <body>
-        <h1 class='title'>仮タイトル</h1>
-        <p class='user_name'>あなたの名前 : {{ Auth::user()->name}}</p>
-        <p class='user_email'>あなたのメールアドレス : {{ Auth::user()->email}}</p>
+            <p class='user_name'>あなたの名前 : {{ Auth::user()->name}}</p>
+            <p class='user_email'>あなたのメールアドレス : {{ Auth::user()->email}}</p>
             <form action="/posts/create" method="POST">
             @csrf
                 <p class='anime'>
-                    <p>該当のアニメがない場合はその他を選択し、」以下に正式名称を入力してください。</p>
+                    <p>該当のアニメがない場合はその他を選択し、以下に正式名称を入力してください。</p>
                     <select name="anime[name]" id="anime_select" >
                         <option value="" >アニメを選択してください</option>  
                         @foreach($animes as $anime)
@@ -45,6 +46,7 @@
                 <input type="submit" value="保存" />
                 </p>
             </form>
+        </div>
     <script>
         let new_input = document.getElementById('new_input');
         function selectChange(event){
@@ -60,3 +62,4 @@
     </script>
     </body>
 </html>
+</x-app-layout>
