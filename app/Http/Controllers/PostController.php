@@ -8,6 +8,7 @@ use App\Models\Anime;
 use App\Models\Character;
 use App\Models\Song;
 use App\Models\Review_Comment;
+use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\CommentRequest;
@@ -16,7 +17,9 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('posts/index')->with(['posts'=> $post->getPaginateByLimit()]);
+        $likes=["僕のヒーローアカデミア","名探偵コナン","ドラえもん"];
+        
+        return view('posts/index')->with(['posts'=> $post->getPaginateByLimit() ,'likes'=> $likes]);
     }
     
     public function post(CommentRequest $request, Post $post , Anime $anime , Character $character , Song $song)
@@ -25,7 +28,7 @@ class PostController extends Controller
         $post->user_id = auth::id();
         
         if( $request['anime']['name'] != "other"){
-            $anime_id = (int)$request['anime'];
+            $anime_id = (int)$request['anime']['name'];
         }else{
             $input = $request['new_anime'];
             $anime->fill($input)->save();
@@ -39,7 +42,7 @@ class PostController extends Controller
         $input = $request['song'];
         $input += array("anime_id"=>$anime_id);
         $song->fill($input)->save();
-        
+       
         $input = $request['post'];
         $input += array("anime_id"=>$anime_id);
         $input += array("character_id"=>$character->id);
@@ -69,9 +72,14 @@ class PostController extends Controller
         $review_comment->fill($input)->save();
         return redirect('/posts/' . $post_id );
     }   
-        public function review(Post $post)
+       
+    public function review(Post $post)
     {
-        return view('posts/review')->with(['post'=> $post]);
+        // $like=Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+        $request=request();
+        $ip = $request->ip();
+        $like=Like::where('post_id',$post->id)->where('ip',$ip)->first();
+        return view('posts/review')->with(['post'=> $post ,'like'=> $like]);
     }
     
     public function delete_review(Review_Comment $review_comment)

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,17 +26,18 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/search',[SearchController::class, 'index'])->name('search');
 Route::get('anime/{anime}' ,[SearchController::class, 'category']);
-
+Route::get('/review/like/{post}',[LikeController::class, 'like'])->name('like');
+Route::get('/review/unlike/{post}',[LikeController::class, 'unlike'])->name('unlike');
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('create');
     Route::post('/posts/create', [PostController::class, 'post']);
-    Route::delete('/{post}', [PostController::class, 'delete_post']);
     Route::post('/posts/{post}',[PostController::class, 'store']);
     Route::delete('/posts/{review_comment}', [PostController::class,'delete_review']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/{post}', [PostController::class, 'delete_post']);    
 });
 
 require __DIR__.'/auth.php';

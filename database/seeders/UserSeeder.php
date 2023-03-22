@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'email' => 'yu@gmail.com',
             'password' => Hash::make('123456789'),
             'age' => '10',
-            'image_url' => '',
+            'image_url' => 'S__57442328.jpg',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
