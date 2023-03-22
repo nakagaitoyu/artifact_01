@@ -15,25 +15,26 @@
                 <div class='posts'>
                     @foreach ($posts as $post)
                     <div class='post'>
-                        <div class="side-img" style="width:40px; display:inline-block;  vertical-align:middle;">
-                            <img src="{{ $post->user->image_url }}" style="border-radius:500px; width:100%">
+                        <!--<div class="side-img" style="width:40px; display:inline-block;  vertical-align:middle;">-->
+                        <div class=" inline-block align-middle" >
+                            <img src="{{ $post->user->image_url }}" class="w-20 h-20 rounded-full">
                         </div>
                         <h3 class='side-text' style="display:inline-block; width:400px; margin-left:15px;">{{ $post->user->name }}</h3>
-                        <h3 class='body'>アニメ:{{ $post->anime->name }}</h3>
-                        <p class='body'>・好きなキャラクター:{{ $post->character->name }}</p>
-                        <p class='body'>・好きな曲:{{ $post->song->name }}</p>
-                        <p class='body'>・好きなアーティスト:{{ $post->song->artist }}  </p>
+                        <h3 class='body'>好きなアニメ:{{ $post->anime->name }}</h3>
+                        <p class='body'>好きなキャラクター:{{ $post->character->name }}</p>
+                        <p class='body'>好きな曲:{{ $post->song->name }}</p>
+                        <p class='body'>好きなアーティスト:{{ $post->song->artist }}  </p>
                         <h4 class='review'> 【本人のコメント】</h4>
                         <p><text> {{ $post->review }} </text></p>
                         @if(Auth::id() === $post->user_id)
                             <form action="/{{$post->id}}" id="form_{{ $post->id }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" onclick="deletePost({{ $post->id }})">削除</button> 
+                                <button type="button" onclick="deletePost({{ $post->id }})" style="color:red">削除</button> 
                             </form>
                         @endif
                         <p class='link'>
-                            <a href="/posts/{{ $post->id }}">コメント一覧を表示</a>
+                            <a href="/posts/{{ $post->id }}" style="color:blue">詳細画面へ</a>
                         </p>
                     </div>
                     @endforeach

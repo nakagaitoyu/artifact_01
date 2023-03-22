@@ -8,6 +8,7 @@ use App\Models\Anime;
 use App\Models\Character;
 use App\Models\Song;
 use App\Models\Review_Comment;
+use App\Models\Like;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -40,8 +41,17 @@ class Post extends Model
     {
         return $this->hasMany(Review_Comment::class);
     }
+    
     public function getPaginateByLimit(int $limit_count = 10)
     {
         return $this::with('anime')->orderBy('updated_at', 'DESC')->paginate($limit_count);
-    }   
+    }
+    
+    
+    
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    
 }
