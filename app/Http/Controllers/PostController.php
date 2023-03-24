@@ -17,9 +17,23 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        $likes=["僕のヒーローアカデミア","名探偵コナン","ドラえもん"];
+        $animes = Anime::all();
+        // アニメ一つ一つに対するいいね数のカウント
+        foreach($animes as $anime)
+        {
+            $sum = 0;
+            foreach($anime->posts as $post)
+            {
+                $sum += $post->likes->count();
+            }
+            $anime->count_serch = $sum;
+        }
         
-        return view('posts/index')->with(['posts'=> $post->getPaginateByLimit() ,'likes'=> $likes]);
+        // アニメのいいね数の多い順に降順に表記
+        $animes_counts = $animes->sortByDesc('count_serch');
+        
+        
+        return view('posts/index')->with(['posts'=> $post->getPaginateByLimit() ,'animes_counts'=> $animes_counts ]);
     }
     
     public function post(CommentRequest $request, Post $post , Anime $anime , Character $character , Song $song)

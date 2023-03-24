@@ -8,6 +8,7 @@ h1 {
   color: black;
   font-family: 'Amatic SC', cursive;
   font-size:50px;
+  font-weight:bold;
 }
 
 h1:after {
@@ -31,6 +32,8 @@ h1:after {
     border-radius: 30px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     font-size:20px;
+    font-weight:bold;
+    line-height: 2.5;
 }
 .post:before{font-family: FontAwesome;
     content: "\f111";
@@ -38,7 +41,7 @@ h1:after {
     font-size: 15px;
     left: -40px;
     bottom: 0;
-    color: #fff0c6;
+    color: red;
 }
 .post:after{
     font-family: FontAwesome;
@@ -47,7 +50,7 @@ h1:after {
     font-size: 23px;
     left: -23px;
     bottom: 0;
-    color: #fff0c6;
+    color: black;
 }
 .post p {
     margin: 0; 
@@ -58,4 +61,53 @@ body {
   margin-left:20px;
   font-size: 16px;
   font-family: Verdana, sans-serif;
+}
+
+
+/*category.blade.php*/
+.ranking{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    margin-left: 810px;
+    margin-right: 20px;
+    color: black;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.ranking p {
+    margin: 0; 
+    padding: 0;
+}
+
+.検索結果{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-left:40px;
+}
+
+/*create.blade.php*/
+.create {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    line-height: 3;
+    width: 100%;
+    text-align: center;
+    font-weight:bold; 
+}
+
+/*review.blade.php*/
+.review_comment{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-left: 50px;
+    font-weight:bold;
+}
+textarea {
+  resize: none;
+  width:400px;
+  height:100px;
+}
+.review_comments{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-left: 50px;
+    font-weight:bold;
 }
