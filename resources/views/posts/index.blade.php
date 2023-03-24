@@ -12,6 +12,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <h1 class='title'>ANNECTION</h1>
+                <div class='ranking' >
+                    <h style="font-size:20px">💗いいねが多かったアニメランキング</h>
+                    @foreach($animes_counts as $animes_count)
+                    <div class="anime">
+                        {{ $loop->index + 1}} . 
+                        <a href="/anime/{{ $animes_count->id }}"  style="font-size:15px;">{{ $animes_count->name }}</a>
+                    </div>    
+                    @endforeach
+                </div>
                 <div class='posts'>
                     @foreach ($posts as $post)
                     <div class='post'>
@@ -24,7 +33,7 @@
                         <p class='body'>好きなキャラクター:{{ $post->character->name }}</p>
                         <p class='body'>好きな曲:{{ $post->song->name }}</p>
                         <p class='body'>好きなアーティスト:{{ $post->song->artist }}  </p>
-                        <h4 class='review'> 【本人のコメント】</h4>
+                        <h4 class='review'> 【{{$post->user->name}}のコメント】</h4>
                         <p><text> {{ $post->review }} </text></p>
                         @if(Auth::id() === $post->user_id)
                             <form action="/{{$post->id}}" id="form_{{ $post->id }}" method="post">

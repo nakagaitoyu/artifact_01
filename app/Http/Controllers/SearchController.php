@@ -19,7 +19,7 @@ class SearchController extends Controller
       
     }
     
-    public function index()
+    public function index(Anime $anime)
     {
     
         return view('search/index');

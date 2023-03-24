@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Review_Comment;
 
 class ProfileController extends Controller
 {
@@ -40,17 +41,23 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request,Review_Comment $review_comment): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current-password'],
         ]);
-
+        
         $user = $request->user();
+        $delete_comment = $review_comment ->where('user_id',$user->id);
+    
+        
 
         Auth::logout();
 
         $user->delete();
+        $delete_comment->delete();
+       
+        
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

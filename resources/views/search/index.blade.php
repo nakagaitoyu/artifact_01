@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<x-app-layout>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -6,13 +7,13 @@
         <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     </head>
     <body>
-        <a href="/">投稿一覧へ戻る</a>
         <h1 class="title">ANNECTION</h1>
-        <h2 class="serch" text align=center>アニメ名検索ページ</h2>
-        <form action="/search/result" method="POST" text align=center>
+        <form action="/search/result" method="POST" text align=center style="margin-top:20px;">
             @csrf
             <input type="text" name="keyword" >
-            <input type="submit" value="検索する"/>
+            <div>
+                <input type="submit" value="検索する" style="color:blue">
+            </div>
         </form>
         <div class="animes" text align="center">
             @if(isset($animes))
@@ -23,3 +24,4 @@
         </div>
     </body>
 </html>
+</x-app-layout>
