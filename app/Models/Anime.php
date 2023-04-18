@@ -31,4 +31,5 @@ class Anime extends Model
     {
         return $this->posts()->with('anime')->orderBy('updated_at','DESC')->paginate($limit_count);
     }
+    
 }

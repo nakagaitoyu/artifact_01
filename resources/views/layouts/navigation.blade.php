@@ -1,7 +1,10 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class=" border-b border-gray-100" style="background-color:white;">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="title">ANNECTION</h1>
         <div class="flex justify-between h-16">
+            
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -12,17 +15,20 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('ダッシュボード') }}
-                    </x-nav-link>
+                    <!--<x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">-->
+                    <!--    {{ __('ダッシュボード') }}-->
+                    <!--</x-nav-link>-->
                     <x-nav-link :href="route('index')" :active="request()->routeIs('dashboard')">
-                        {{ __('投稿一覧') }}
+                        <span style="color:#082a4d; font-family:'ＭＳＰゴシック'; font-weight:bold;">{{ __('投稿一覧') }}</span>
                     </x-nav-link>
                     <x-nav-link :href="route('create')" :active="request()->routeIs('dashboard')">
-                        {{ __('投稿作成') }}
+                        <span style="color:#082a4d; font-family:'ＭＳＰゴシック'; font-weight:bold;">{{ __('投稿作成') }}</span>
                     </x-nav-link>
-                    <x-nav-link :href="route('search')" :active="request()->routeIs('dashboard')">
-                        {{ __('アニメ検索') }}
+                    <x-nav-link :href="route('search_anime')" :active="request()->routeIs('dashboard')">
+                        <span style="color:#082a4d; font-family:'ＭＳＰゴシック'; font-weight:bold;">{{ __('アニメ検索') }}</span>
+                    </x-nav-link>
+                     <x-nav-link :href="route('search_user')" :active="request()->routeIs('dashboard')">
+                        <span style="color:#082a4d; font-family:'ＭＳＰゴシック'; font-weight:bold;">{{ __('ユーザー検索') }}</span>
                     </x-nav-link>
                 
                     
@@ -56,11 +62,19 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
+                            @if(Auth::check())
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('ログアウト') }}
                             </x-dropdown-link>
+                            @else
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('ログイン') }}
+                            </x-dropdown-link>
+                            @endif
                         </form>
                     </x-slot>
                 </x-dropdown>
