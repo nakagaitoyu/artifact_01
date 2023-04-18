@@ -1,58 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+@font-face{
+  font-family:azuki;
+  src: url("../font/azuki.ttf") format("truetype");
+}
 
-h1 {
+
+
+/*index.blade.phpのレイアウト*/
+.title {
   position: relative;
   text-align: center;
   padding: 1rem .5rem;
   color: black;
   font-family: 'Amatic SC', cursive;
-  font-size:50px;
+  font-size:20px;
   font-weight:bold;
+  background-color: white;
 }
 
-h1:after {
+.title:after {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 6px;
+  height: 10px;
   content: '';
   border-radius: 3px;
   background-image: -webkit-linear-gradient(20deg, yellow, blue, orange, purple, green, red);
-  background-image: linear-gradient(70deg, yellow, blue, orange, purple, green, red);
+  background-image: linear-gradient(70deg);
 }
 
-.post {
-    position: relative;
-    margin: 2em 0 2em 40px;
-    margin-right: 600px;
-    padding: 8px 15px;
-    background: #fff0c6;
-    border-radius: 30px;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size:20px;
-    font-weight:bold;
-    line-height: 2.5;
+.post1{
+  margin: 30px 30px 30px 30px ;
+  padding: 1em;
+  box-shadow: 0 0 3px 3px #40c4ff, 0 0 3px 2px #40c4ff inset;
+  border-radius: 10px;
+  background: #e1f5fe;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  width:700px;
 }
-.post:before{font-family: FontAwesome;
+
+.post1 p{
+  margin: 0;
+  padding: 0;
+}
+
+.text1 {
+    position: relative;
+    margin: 2em 20px 2em 40px;
+    padding: 5px ;
+    background: white;
+    border-radius: 30px;
+    border: 5px solid #7fffd4;
+    width:500px;
+    text-align: center;
+    
+}
+.text1:before{font-family: FontAwesome;
     content: "\f111";
     position: absolute;
     font-size: 15px;
     left: -40px;
     bottom: 0;
-    color: red;
+    color: white;
+    border-radius:50%;
+    background-color: white;
+    border: 5px solid #7fffd4;
 }
-.post:after{
+.text1:after{
     font-family: FontAwesome;
     content: "\f111";
     position: absolute;
     font-size: 23px;
     left: -23px;
     bottom: 0;
-    color: black;
+    color: white;
+    background-color: white;
+    border-radius:50%;
+    border: 5px solid #7fffd4;
 }
-.post p {
+.text1 p {
+    margin: 0; 
+    padding: 25px 20px 10px 10px;
+}
+
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 8px;
+    background-color: white;
+    color:#4169e1;
+}
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #e1f5fe;
+    color: black;
+    font-weight: bold;
+}
+.box26 p {
     margin: 0; 
     padding: 0;
 }
@@ -61,32 +113,94 @@ body {
   margin-left:20px;
   font-size: 16px;
   font-family: Verdana, sans-serif;
+ 
 }
 
-
-/*category.blade.php*/
 .ranking{
     padding: 0.5em 1em;
-    margin: 2em 0;
-    margin-left: 810px;
-    margin-right: 20px;
+    margin:30px 40px 30px 60px;
+    height: 290px;
     color: black;
     background: #c6e4ff;
     border-bottom: solid 6px #aac5de;
     border-radius: 9px;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    width:315px;
 }
 .ranking p {
     margin: 0; 
     padding: 0;
 }
 
+/*review.blade.php*/
+.post2{
+  width:800px;
+  margin:30px 0px 30px 200px;
+  padding: 1em;
+  box-shadow: 0 0 3px 3px #40c4ff, 0 0 3px 2px #40c4ff inset;
+  border-radius: 10px;
+  background: #e1f5fe;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  
+  
+}
+
+.post2 p{
+  margin: 0;
+  padding: 0;
+}
+
+.text2 {
+    position: relative;
+    margin: 2em 20px 2em 40px;
+    padding: 5px ;
+    background: white;
+    border-radius: 30px;
+    border: 5px solid #7fffd4;
+    width:500px;
+    text-align: center;
+}
+.text2:before{font-family: FontAwesome;
+    content: "\f111";
+    position: absolute;
+    font-size: 15px;
+    left: -40px;
+    bottom: 0;
+    color: white;
+    border-radius:50%;
+    background-color: white;
+    border: 5px solid #7fffd4;
+}
+.text2:after{
+    font-family: FontAwesome;
+    content: "\f111";
+    position: absolute;
+    font-size: 23px;
+    left: -23px;
+    bottom: 0;
+    color: white;
+    background-color: white;
+    border-radius:50%;
+    border: 5px solid #7fffd4;
+}
+.text2 p {
+    margin: 0; 
+    padding: 25px 20px 10px 10px;
+}
 .検索結果{
     font-family: 'M PLUS Rounded 1c', sans-serif;
     margin-left:40px;
 }
 
-/*create.blade.php*/
+.side-text{
+    background: #4169e1;
+    border-radius: 50px;
+    color:white;
+    margin-bottom: 10px;
+    
+    
+}
+
 .create {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     line-height: 3;
@@ -97,17 +211,53 @@ body {
 
 /*review.blade.php*/
 .review_comment{
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    margin-left: 50px;
+   font-family: 'Zen Maru Gothic', sans-serif;
     font-weight:bold;
+    font-size:1em;
+}
+
+.select_anime{
+    font-family: 'Zen Maru Gothic', sans-serif;
 }
 textarea {
   resize: none;
-  width:400px;
-  height:100px;
+  margin-top:10px;
+  width:1120px;
+  height:50px;
+  border-radius: 50px;
+  
 }
 .review_comments{
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    margin-left: 50px;
+    font-family: "UD Digi Kyokasho NK-B";
     font-weight:bold;
+    padding: 0.2em 0.5em;
+    margin: 32px 32px 32px 32px;
+    color: #565656;
+    background: #ffeaea;
+    box-shadow: 0px 0px 0px 10px #ffeaea;
+    border: dashed 2px #e95295;
+    border-radius: 8px;
+}
+
+.review_comments_title{
+    background: #e95295;
+    color:white;
+    margin:10px 850px 10px 10px;
+    font-weight: bold;
+    border-radius:50px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    width:30%;
+}
+
+.search_title{
+    font-family: 'Zen Maru Gothic', sans-serif;
+    text-align:center;
+    margin-top:20px;
+    margin-bottom: 50px;
+}
+
+.review_body{
+    font-family: 'Zen Maru Gothic', sans-serif;
+    width:1060px;
+
 }

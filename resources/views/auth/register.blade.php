@@ -10,7 +10,7 @@
         </div>
         
         
-        <div>
+        <div class="mt-4">
             <x-input-label for="age" :value="__('年齢')"/>
             <x-text-input id="age" class="block mt-1 w-full" type="number" name="age" :value="old('age')" />
             <x-input-error :messages="$errors->get('age')" class="mt-2" />
@@ -45,9 +45,9 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-        
-        <div>
-            <x-input-label for="image_url" :value="__('image_url')"/>
+
+        <div class="mt-4">
+            <x-input-label for="image_url" :value="__('アイコン画像(任意)')"/>
             <x-text-input id="image_url" class="block mt-1 w-full" type="file" name="image_url" :value="old('image_url')" />
             <x-input-error :messages="$errors->get('image_url')" class="mt-2" />
         </div>

@@ -13,7 +13,7 @@ class review_comment extends Model
     use SoftDeletes;
     use HasFactory;
     
-    protected $fillable = ['body', 'user_id'];
+    protected $fillable = ['body', 'user_id','post_id'];
     
     public function user()
     {

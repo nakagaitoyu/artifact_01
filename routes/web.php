@@ -17,17 +17,21 @@ use App\Http\Controllers\LikeController;
 |
 */
 
-Route::post('/search/result',[SearchController::class, 'search']);
+
 Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('create');
 Route::get('/posts/{post}',[PostController::class, 'review']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/search',[SearchController::class, 'index'])->name('search');
-Route::get('anime/{anime}' ,[SearchController::class, 'category']);
+Route::get('/search_anime',[SearchController::class, 'search_anime'])->name('search_anime');
+Route::get('/search_user' ,[SearchController::class, 'search_user'])->name('search_user');
+Route::get('anime/{anime}' ,[SearchController::class, 'category_anime']);
+Route::get('user/{user}',[SearchController::class, 'category_user']);
 Route::get('/review/like/{post}',[LikeController::class, 'like'])->name('like');
 Route::get('/review/unlike/{post}',[LikeController::class, 'unlike'])->name('unlike');
+Route::get('/result_anime',[SearchController::class, 'result_anime']);
+Route::get('/result_user',[SearchController::class, 'result_user']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('create');

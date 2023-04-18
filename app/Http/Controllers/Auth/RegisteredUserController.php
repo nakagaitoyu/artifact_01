@@ -38,20 +38,42 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
         
-        $image_url = Cloudinary::upload($request->file('image_url')->getRealPath())->getSecurePath();
-        
-        $user = User::create([
+        if($request->file('image_url'))
+        {//画像ファイルが贈られた時だけ
+            $image_url = Cloudinary::upload($request->file('image_url')->getRealPath())->getSecurePath();
+            
+            $user = User::create([
             'name' => $request->name,
-            'image_url' => $image_url,
+            'image_url'=>$image_url,
+            'age' => $request->age,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            ]);
+            
+            event(new Registered($user));
+
+            Auth::login($user);
+
+            return redirect(RouteServiceProvider::HOME);
+        }else
+        {
+            $user = User::create([
+            'name' => $request->name,
+            'image_url'=>asset('img/ひよこ.png'),
             'age' => $request->age,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+            event(new Registered($user));
+    
+            Auth::login($user);
+    
+            return redirect(RouteServiceProvider::HOME);
+        }
+        
+        
+        
 
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        
     }
 }

@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
+
 class Post extends Model
 {
     use HasFactory;
@@ -36,7 +37,13 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    } 
+    
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
+    
     public function review_comments()
     {
         return $this->hasMany(Review_Comment::class);
@@ -49,9 +56,6 @@ class Post extends Model
     
     
     
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
+   
     
 }

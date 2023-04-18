@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id');
             $table->foreignId('post_id'); 
+            $table->integer("count_serch")->length(6)->default(0);
             $table->softDeletes();
         });
     }

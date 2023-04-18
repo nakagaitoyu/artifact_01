@@ -15,28 +15,33 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-     
-    
-    public function review_comments()
-    {
-        return $this->hasMany(Review_Comment::class);
-    }
-    public function post()
-    {
-        return $this->hasOne(Post::class);
-    }
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
-    
     protected $fillable = [
         'name',
         'age',
         'email',
         'image_url',
         'password',
-    ];
+        'post_id',
+    ]; 
+    
+    public function review_comments()
+    {
+        return $this->hasMany(Review_Comment::class);
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    public function getByUser(int $limit_count = 1)
+    {
+        return $this->posts()->with('user')->orderBy('updated_at','DESC')->paginate($limit_count);
+    }
+    
+    
 
     /**
      * The attributes that should be hidden for serialization.
