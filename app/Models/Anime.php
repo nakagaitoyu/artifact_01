@@ -27,7 +27,7 @@ class Anime extends Model
     {
         return $this->hasMany(Post::class);
     }
-    public function getByAnime(int $limit_count = 1)
+    public function getByAnime(int $limit_count = 5)
     {
         return $this->posts()->with('anime')->orderBy('updated_at','DESC')->paginate($limit_count);
     }

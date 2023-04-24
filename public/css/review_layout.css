@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+.title {
+  position: relative;
+  text-align: center;
+  padding: 1rem .5rem;
+  color: black;
+  font-family: 'Caveat', cursive;
+  font-size:20px;
+  font-weight:bold;
+  background-color: white;
+}
+
+.title:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  content: '';
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(20deg, yellow, blue, orange, purple, green, red);
+  background-image: linear-gradient(70deg);
+}
+
+.baseball{
+    background-image:url('甲子園球場.png');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.toumei0{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.toumei3{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius:10px;
+    
+}
+
+.post2{
+  margin: 30px 0px 30px 200px ;
+  padding: 1em;
+  box-shadow: 0 0 3px 6px #66330e, 0 0 3px 25px #FEF7EF inset;
+  border-radius: 10px;
+  background-image: url('タッチロゴ.png');
+  background-size: cover;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
+  width:750px;
+  
+  
+}
+
+.post2 p{
+  margin: 0;
+  padding: 0;
+}
+
+.side-text{
+    background: #66330e;
+    padding-top:5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    color:#FEF7EF;
+    margin-bottom: 10px;
+    font-weight: bold;
+    
+}
+
+.text2 {
+    position: relative;
+    margin: 2em 20px 2em 40px;
+    padding-left:20px ;
+    background: #FEF7EF;
+    border-radius: 30px;
+    border: 5px solid #801236;
+    width:500px;
+    background-color:rgba(255,255,255,0.8);
+    font-size:16px;
+    font-weight: bolder;
+}
+.text2:before{font-family: FontAwesome;
+    content: "\f111";
+    position: absolute;
+    font-size: 15px;
+    left: -40px;
+    bottom: 0;
+    color: white;
+    border-radius:50%;
+    background-color: #FEF7EF;
+    border: 5px solid #801236;
+}
+.text2:after{
+    font-family: FontAwesome;
+    content: "\f111";
+    position: absolute;
+    font-size: 23px;
+    left: -23px;
+    bottom: 0;
+    color: white;
+    background-color: #FEF7EF;
+    border-radius:50%;
+    border: 5px solid #801236;
+}
+.text2 p {
+    margin: 0; 
+    padding: 25px 20px 10px 10px;
+}
+
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #801236;
+    border-radius: 8px;
+    background-color: #FEF7EF;
+    color:black;
+    background-color:rgba(255,255,255,0.8);
+}
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -43px;
+    left: 10px;
+    padding: 0.5em;
+    line-height: 1;
+    font-size: 19px;
+    color: white;
+    font-weight: bold;
+    background-color:#801236;
+    border-radius:10px;
+}
+.box26 p {
+    margin: 0; 
+    padding: 0;
+}
+
+.review_comments_box{
+    box-shadow: 0 0 3px 6px #003300, 0 0 3px 5px white inset;
+    border-radius: 10px;
+    background-color:#e6ffe6;
+    /*background-image: url('巨人の星.png');*/
+    /*background-size: cover;*/
+    /*font-weight:bold;*/
+    /*padding: 0.2em 0.5em;*/
+    /*margin: 32px 32px 32px 32px;*/
+    /*color: #565656;*/
+    /*background: #ffeaea;*/
+    /*box-shadow: 0px 0px 0px 10px #ffeaea;*/
+    /*border: dashed 2px #e95295;*/
+    /*border-radius: 8px;*/
+}
+
+.toumei4{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius:10px;
+    
+}
+
+.review_comments_title{
+    position: relative;
+    top:5px;
+    background: #003300;
+    padding-bottom: 10px;
+    margin-left: 25px;
+    color:white;
+    text-align: center;
+    font-weight: bold;
+    border-radius:5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    width:18%;
+}
+
+textarea {
+    position:relative;
+    resize: none;
+    margin-top:10px;
+    margin-left:25px;
+    border:solid 2px #006600;
+    height:44px;
+    font-size: 13px;
+    border-radius: 10px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    width:95%;
+    background-color: white;
+  
+}
+
+.submit_button{
+   font-family: 'Noto Sans JP', sans-serif;
+   font-weight:bold;
+   margin-left:25px;
+   /*border: solid 3px #6b6bb3;*/
+   background-color:#004466;
+   color:white;
+   border-radius:10%;
+   padding:0.2em;
+   font-size:14px;
+   }
+
+.review_commments{
+   background-image: url('巨人の星.png');
+   background-attachment: fixed;
+   background-size: cover;
+   border-radius:10px;
+}
+
+
+
+
+
+.review_body{
+    font-family: 'Noto Sans JP', sans-serif;
+    width:1060px;
+
+}
