@@ -59,7 +59,7 @@ class RegisteredUserController extends Controller
         {
             $user = User::create([
             'name' => $request->name,
-            'image_url'=>asset('img/ひよこ.png'),
+            'image_url'=>asset('img/デク.png'),
             'age' => $request->age,
             'email' => $request->email,
             'password' => Hash::make($request->password),
