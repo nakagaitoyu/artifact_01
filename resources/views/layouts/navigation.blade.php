@@ -1,8 +1,11 @@
 <nav x-data="{ open: false }" class=" border-b border-gray-100" style="background-color:white;">
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    </head>
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="title">ANNECTION</h1>
+        <h1 class="title" style="text-align:center; font-weight:bold;">ANNECTION</h1>
         <div class="flex justify-between h-16">
             
             <div class="flex">

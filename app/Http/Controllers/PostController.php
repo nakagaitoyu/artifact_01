@@ -25,30 +25,32 @@ class PostController extends Controller
             foreach($anime->posts as $post)
             {
                 $sum1 += $post->likes->count();
+                // dd($sum1);
             }
             $anime->count_serch = $sum1;
         }
         // アニメのいいね数の多い順に降順に表記
         $animes_counts = $animes->sortByDesc('count_serch')->take(10);
         
-        
-        // $review_comments = Review_Comment::all();
-        
-        // foreach($review_comments as $review_comment)
+        // $posts = POST::all();
+    
+        // foreach($posts as $post)
         // {
         //     $sum2 = 0;
-        //     foreach($review_comment->post as $post)
+        //     foreach($post->review_comments as $review_comment)
         //     {
-        //         $sum2 += $post->review_comments->count();
+        //         $sum2 += $review_comment->count();
+        //         // dd($sum2);
         //     }
+            
         //     $review_comment->count_serch = $sum2;
         // }
-        // dd($review_comment);
+        
 
         // 投稿一つ一つに対するコメントのカウント
         
         
-        return view('posts/index')->with(['posts'=> $post->getPaginateByLimit() ,'animes_counts'=> $animes_counts]);
+        return view('posts/index')->with(['posts'=> $post->getPaginateByLimit() ,'animes_counts'=> $animes_counts,]);
     }
     
     public function post(CommentRequest $request, Post $post , Anime $anime , Character $character , Song $song)

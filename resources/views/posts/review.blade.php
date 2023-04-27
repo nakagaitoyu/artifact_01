@@ -75,7 +75,7 @@
                                     <p class="body__error" style="color:red">{{ $errors->first('review_comment.body') }}</p>
                                 </p>
                                 <p>
-                                    <input class="submit_button" type="submit" value="保存" />
+                                    <input class="submit_button" type="submit" value="保存" style="margin-bottom:20px;" />
                                      <a href="/posts/{{ $post->id }}"></a>
                                 </p>
                             </form>
@@ -84,20 +84,20 @@
                             <div class="toumei4">    
                                 @foreach ($post->review_comments as $review_comment)
                                 <div>
-                                    <div class="flex" style="margin-top:40px; margin-left:25px;">
+                                    <div class="flex" style=" margin-left:25px;">
                                         <div class="rounded-full" style="width:60px; height:60px;">
                                             <img src="{{ $review_comment->user->image_url }}" class="rounded-full object-contain" style="width:60px; height:60px; background-color:white;">
                                         </div> 
                                         <div style="margin-left:10px;">
-                                            <p><span style="font-size:13px; font-color:#393f4c; font-family: 'Noto Sans JP', sans-serif;">{{ $review_comment->user->name }}</span> <span style="color:red; font-size:13px;">({{ $review_comment->created_at }})</span></p>
-                                            <p class="review_body" style=" color:#003300; font-size:16px; word-wrap:break-word; overflow-wrap:break-word; font-family: 'Noto Sans JP', sans-serif; font-weight:bold">{{ $review_comment->body }}</p>
+                                            <p><span style="font-size:13px; font-color:#393f4c; font-family: 'Zen Kurenaido', sans-serif;">{{ $review_comment->user->name }}</span> <span style="color:red; font-size:13px;">({{ $review_comment->created_at }})</span></p>
+                                            <p class="review_body" style=" color:#003300; font-size:16px; word-wrap:break-word; overflow-wrap:break-word; font-family: 'Zen Kurenaido', sans-serif; font-weight:bold">{{ $review_comment->body }}</p>
                                         </div>
                                     </div>
                                     @if(Auth::id() === $review_comment->user_id)
                                         <form action="/posts/{{ $review_comment->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="button" onclick="deletePost({{ $post->id }})" style="color:red; margin-left:69px; font-size:13px; font-family: 'Zen Maru Gothic', sans-serif;">コメントを削除</button> 
+                                            <button type="button" onclick="deletePost({{ $post->id }})" style="color:red; margin-left:69px; font-size:13px; font-family: 'Zen Kurenaido', sans-serif;">コメントを削除</button> 
                                         </form>
                                     @endif    
                                 </div>

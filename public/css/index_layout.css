@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+@font-face{
+    font-family: sample;
+    font-weight: 400;
+    font-style: normal;
+    src :url("/font/851MkPOP_101.woff") format("woff");
+    font-display: swap;
+}
 
 
 
@@ -19,7 +27,7 @@ body{
   bottom:0;
   background-color:#1e1e1e;
   z-index:9999;
-  animation: byeShutter 5.0s forwards;
+  animation: byeShutter 1.3s forwards;
 }
 .shutter:before{
     content:'';
@@ -31,11 +39,11 @@ body{
     background-color:#f3f3f3;
     width:0;
     height:10px;
-    animation: shutterOpen 5.0s forwards;
+    animation: shutterOpen 1.3s forwards;
   }
   
 .content{
-  animation: contentScale 5.0s forwards;
+  animation: contentScale 1.3s forwards;
 }
 
 .shutter_text {
@@ -53,7 +61,7 @@ body{
     margin: auto;
     z-index: 7;
     opacity: 0;
-    animation: textAnime1 .5s linear forwards;
+    animation: textAnime1 1.3s linear forwards;
 }
  
 .shutter_text span{
@@ -214,14 +222,15 @@ body{
     background-size: cover;
     width:350px;
     height: 400px;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Zen Kurenaido', sans-serif;
+    font-weight:bolder;
   
 }
 .ranking_title{
     position: relative;
     top:10px;
     color:#161666;
-    font-size:16px;
+    font-size:18px;
     font-weight:bold;
     text-align: center;
     margin-bottom:20px;
@@ -247,11 +256,11 @@ body{
   margin: 30px 30px 30px 30px ;
   padding: 1em;
   box-shadow: 0 0 3px 6px #66330e, 0 0 3px 25px #FEF7EF inset;
-  border-radius: 10px;
+  border-radius: 5px;
   background-image: url('コナン.png');
   background-size: cover;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: bold;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight:bolder;
   width:750px;
 }
 
@@ -275,10 +284,7 @@ body{
     border: 5px solid #801236;
     width:500px;
     background-color:rgba(255,255,255,0.8);
-    font-size:16px;
-    font-weight: bolder;
-    
-    
+    font-size:18px;
 }
 .text1:before{font-family: FontAwesome;
     content: "\f111";
