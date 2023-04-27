@@ -31,7 +31,7 @@
                         <div class="flex">
                             <div class='ranking' >
                                 <div class="toumei1">
-                                    <div class="ranking_title" >💗いいねが多かったアニメ(10位)</div>
+                                    <div class="ranking_title" >いいねが多かったアニメ(10位)</div>
                                     @foreach($animes_counts as $animes_count)
                                     <div class="ranking_text">
                                         <span style="color:#161666; font-weight:bold;">{{ $loop->index + 1}} .</span> 
@@ -66,7 +66,7 @@
                                                 <div> <span style="word-wrap:break-word; overflow-wrap:break-word;">{{ $post->review }}</span> </div>    
                                             </div>
                                             
-                                            <div class="flex" style="text-align;">
+                                            <div class="flex" style="text-align:right;">
                                                 @if(Auth::id() === $post->user_id)
                                                 <form action="/{{$post->id}}" id="form_{{ $post->id }}" method="post">
                                                     @csrf
@@ -75,8 +75,10 @@
                                                 </form>
                                                 @endif
                                                 <p class='link'>
-                                                    <a href="/posts/{{ $post->id }}" style="color:#a16e00; margin:20px;">詳細画面へ　　<span style="color:black;">💗 いいね:{{ $post->likes->count()}}件</span></a>
-                                                </p>     
+                                                    <a href="/posts/{{ $post->id }}" style="color:#a16e00; margin:20px;">詳細画面へ</a>
+                                                </p>
+                                                <p><span style="margin-left:20px; color:red;">💗 いいね</span>:{{ $post->likes->count()}}件</p>
+                                                <p><span style="margin-left:20px; color:#003300;">コメント</span>:{{ $post->review_comments->count() }}件</p>
                                             </div>
                                                
                                         </div>

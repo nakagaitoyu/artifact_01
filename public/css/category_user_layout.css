@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
 .title {
   position: relative;
   text-align: center;
@@ -50,8 +51,8 @@
   border-radius: 10px;
   background-image: url('あしたのジョーロゴ.png');
   background-size: cover;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: bold;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-weight:bolder;
   width:750px;
 }
 

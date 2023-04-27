@@ -50,14 +50,14 @@ textarea {
 
 select option{
 background:white;
-color:red;
+color:blue;
 font-size:13px;
 }
 
 select option:hover,
 select option:checked{
 background:#fff;
-color:#004B88;
+color:black;
 }
 
 .btn-square-soft1 {
